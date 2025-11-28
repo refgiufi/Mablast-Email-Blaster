@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Env
+.env
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Deployment
+instance/
+.webassets-cache

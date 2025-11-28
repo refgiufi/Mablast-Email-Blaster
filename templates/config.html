@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mablast-Email-Blaster - SMTP Config</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <div class="flex items-center mb-4">
+      <h1 class="text-2xl font-bold text-blue-600">🚀 Mablast-Email-Blaster</h1>
+      <span class="ml-3 text-gray-500">- SMTP Config Manager</span>
+    </div>
+
+    <form method="POST" class="space-y-4">
+      <input type="text" name="name" placeholder="Config Name" required class="w-full p-2 border rounded">
+      <input type="text" name="smtp_host" placeholder="SMTP Host" required class="w-full p-2 border rounded">
+      <input type="number" name="smtp_port" placeholder="Port" required class="w-full p-2 border rounded">
+      <input type="text" name="smtp_user" placeholder="SMTP Username" required class="w-full p-2 border rounded">
+      <input type="password" name="smtp_pass" placeholder="SMTP Password" required class="w-full p-2 border rounded">
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Add Config</button>
+    </form>
+
+    <hr class="my-6">
+
+    <h2 class="text-xl font-bold mb-2">Config List</h2>
+    <ul class="space-y-2">
+      {% for config in configs %}
+      <li class="p-3 bg-gray-50 rounded border">
+        <div class="flex justify-between items-center">
+          <div>
+            <strong>{{ config.name }}</strong> ({{ config.smtp_user }}@{{ config.smtp_host }})
+          </div>
+          <a href="/config/delete/{{ config.id }}" class="text-red-500 hover:text-red-700 text-sm">Delete</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <a href="/" class="block mt-6 text-blue-600 hover:underline">← Back to Mablast-Email-Blaster</a>
+  </div>
+</body>
+</html>
